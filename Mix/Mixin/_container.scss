@@ -1,0 +1,24 @@
+@mixin container-width($width){
+    @if map-has-key($container-width , $width ){
+        max-width: map-get($container-width, $width );
+    }
+    @else{
+        @error "This container-width in not defind "
+    }
+};
+//
+// Classes
+//
+.container{
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    margin-right: auto;
+    margin-left: auto;
+
+    @each $media in $all-media{
+        @include media-min($media){
+            @include container-width($media)
+        }
+    };
+}
+

@@ -1,0 +1,143 @@
+//
+// List unstyled
+//
+.list-unstyled{
+    list-style:none
+}
+//
+// text align 
+//
+.center{
+    text-align:center
+}
+.left{
+    text-align:left
+}
+.right{
+    text-align:right
+}
+//
+// text transform
+//
+.lowercase{
+    text-transform: lowercase
+}
+.uppercase{
+    text-transform: uppercase
+}
+.capitalize{
+    text-transform: capitalize
+}
+//
+// Images
+//
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+}
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+}
+// 
+// Border And Background And Color 
+//
+@each $color , $value in $theme-colors{
+    .bg-#{$color}{
+        background:$value!important;
+    }
+    .bo-#{$color}{
+        border:1px solid $value;
+    }
+    .co-#{$color}{
+        color:$value
+    }
+}
+
+@each $color , $value in $theme-colors-hover{
+    .bg-#{$color}{
+        &:hover{
+            background:$value!important;
+        }
+    }
+    .bo-#{$color}{
+        &:hover{
+            border:1px solid $value!important;
+        }
+    }
+    .co-#{$color}{
+        &:hover{
+            color:$value!important
+        }
+    }
+}
+
+//
+// All Display Css
+// 
+
+@each $display in $display {
+    .d-#{$display}{
+        display:$display
+    }
+}
+
+//
+// Section
+// 
+
+.mix-section{
+    padding:50px 0
+}
+.divider{
+    border-bottom: 1px solid #ddd    
+}
+.example{
+    margin-bottom: 25px;
+
+    .preview{
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+    .example-code{
+        pre{
+            padding:0;
+            margin:0;
+            background:#2d3339;
+            padding:25px;
+            white-space: pre-line;
+            max-height: 245px;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 10px;
+              }
+        
+            &::-webkit-scrollbar-track {
+            background: #323334
+            }
+    
+            &::-webkit-scrollbar-thumb {
+            background: #666667; 
+            border-radius: 0px;
+            }
+        }
+        .content{
+            color:#ddd
+        }
+        .el{
+            color:#abdeff
+        }
+        .class{
+            color:#32d2c5
+        }
+        .name{
+            color: #e2b977
+        }
+    }
+
+}

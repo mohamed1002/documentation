@@ -1,0 +1,59 @@
+//
+// Card and media and blog
+//
+
+.card{
+    border-radius: 5px;
+    border: 1px solid #d4d7da;
+    overflow: hidden;
+    h3{
+        margin:0px;
+    }
+    img{
+        width: 100%;
+    }
+    .card-body{
+        padding: 15px;
+    }
+    p{
+        line-height: 1.5em;
+        margin:10px 0;
+        @include media-max(xs){
+            font-size:$font-xs
+        }
+    }
+    small{
+        color:$gray-600;
+        font-weight: 400
+    }
+    button{
+        margin-top:15px;
+    }
+}
+
+.card-right{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+
+    img{
+        width:50%!important;
+        height: 100%;
+    }
+
+    .card-body{
+        padding:20px 20px;
+
+        h3{
+            margin:0
+        }
+
+        p{
+            line-height: 1.5em;
+            margin: 10px 0;
+        }
+    }
+}

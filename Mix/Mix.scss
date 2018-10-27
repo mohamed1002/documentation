@@ -1,0 +1,31 @@
+@import "./Variables/color";
+@import "./Variables/variables";
+@import "./helpers/helpers";
+
+@import "./Mixin/normalize";
+@import "./Mixin/prefixer";
+@import "./Mixin/breakpoint";
+@import "./Mixin/container";
+@import "./Mixin/grid";
+@import "./Mixin/font-size";
+@import "./Mixin/padding&margin";
+
+@import "./mixin/dropdown-arrow";
+@import "./Componentes/button";
+@import "./Componentes/navbar";
+@import "./Componentes/card";
+@import "./Componentes/social-media";
+@import "./Componentes/comment";
+
+
+*{
+    box-sizing: border-box
+}
+
+body{
+    font-family: $font-family;
+    box-sizing: border-box;
+    color:$body-color
+}
+
+

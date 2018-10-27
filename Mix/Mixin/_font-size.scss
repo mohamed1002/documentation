@@ -1,0 +1,152 @@
+// // 
+// // a Map of font responsive arbaic and english
+// //
+
+$font-xs : 15px;
+$font-sm : 16px;
+$font-md : 17px;
+$font-lg : 18px;
+
+$font-english:(
+    xs : 15px,
+    sm : 16px,
+    md : 17px,
+    lg : 18px,
+);
+$font-arabic:(
+    xs : 16px,
+    sm : 17px,
+    md : 18px,
+    lg : 19px,
+);
+// 
+// all Title and hiddeing arabic and english
+//
+$h1:(
+    xs : 35px,
+    sm : 40px,
+    md : 45px,
+    lg : 50px,
+);
+$h2:(
+    xs : 28px,
+    sm : 30px,
+    md : 35px,
+    lg : 37px,
+);
+$h3:(
+    xs : 20px,
+    sm : 20px,
+    md : 25px,
+    lg : 27px,
+);
+//
+// Mixin to make resposive font
+//
+@mixin english-font($size){
+    @if map-has-key($font-english,$size){
+        font-size : map-get($font-english, $size)
+    }
+    @else {
+        @warn ""
+    }
+};
+@mixin arabic-font($size){
+    @if map-has-key($font-arabic,$size){
+        font-size : map-get($font-arabic, $size)
+    }
+    @else {
+        @warn ""
+    }
+};
+// //
+// // make class lead-en and lead-ar by include mixin 
+// //
+.lead{
+    line-height: 1.5em;
+    @include media-max(xs){
+        @include english-font(xs)
+    }
+    @each $media in $all-media{
+        @include media-min($media){
+            @include english-font($media)
+        }
+    }
+}
+.lead-ar{
+    line-height: 1.5em;
+    @include media-max(xs){
+        @include arabic-font(xs)
+    }
+    @each $media in $all-media{
+        @include media-min($media){
+            @include arabic-font($media)
+        }
+    }
+}
+//
+// Mixin Responsive title and hiddeing 
+//
+@mixin title-h1($size){
+    @if map-has-key($h1,$size){
+        font-size : map-get($h1, $size)
+    }
+    @else {
+        @warn ""
+    }
+};
+@mixin title-h2($size){
+    @if map-has-key($h2,$size){
+        font-size : map-get($h2, $size)
+    }
+    @else {
+        @warn ""
+    }
+};
+@mixin title-h3($size){
+    @if map-has-key($h3,$size){
+        font-size : map-get($h3, $size)
+    }
+    @else {
+        @warn ""
+    }
+};
+//
+// rest hiddeing by include mixin 
+//
+h1{
+    @include media-max(xs){
+        @include title-h1(xs)
+    }
+    @each $media in $all-media{
+        @include media-min($media){
+            @include title-h1($media)
+        }
+    }
+}
+h2{
+    @include media-max(xs){
+        @include title-h2(xs)
+    }
+    @each $media in $all-media{
+        @include media-min($media){
+            @include title-h2($media)
+        }
+    }
+}
+h3{
+    @include media-max(xs){
+        @include title-h3(xs)
+    }
+    @each $media in $all-media{
+        @include media-min($media){
+            @include title-h3($media)
+        }
+    }
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin:0;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}

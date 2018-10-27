@@ -1,0 +1,58 @@
+//
+// Classes
+//
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
+};
+[class*="col-"]{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding:10px 15px;
+}
+//
+// For loop on col-media-grid
+//
+@each $media in $all-media{
+    @for $i from 1 through $grid-system {
+        .col-#{$i}{
+            flex-basis: ($i / $grid-system) * 100%
+        }
+        .col-#{$media}-#{$i}{
+            @include media-min($media){
+                flex-basis: ($i / $grid-system) * 100%   ;
+            }
+        }
+    }
+}
+//
+// For loop on col-media-grid
+//
+@for $i from 1 through $grid-system {
+    .col-offset-r-#{$i}{
+        margin-right: ($i / $grid-system) * 100%
+    };
+    .col-xs-offset-r-#{$i}{
+        @include media-min(xs){
+            margin-right: ($i / $grid-system) * 100%
+        }
+    };
+    .col-sm-offset-r-#{$i}{
+        @include media-min(sm){
+            margin-right: ($i / $grid-system) * 100%
+        }
+    };
+    .col-md-offset-r-#{$i}{
+        @include media-min(md){
+            margin-right: ($i / $grid-system) * 100%
+        }
+    };
+    .col-lg-offset-r-#{$i}{
+        @include media-min(lg){
+            margin-right: ($i / $grid-system) * 100%
+        }
+    };
+}

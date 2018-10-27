@@ -1,0 +1,203 @@
+//
+// Button & input
+//
+
+.btn{
+    display: inline-block;
+    font-weight: $font-weight-light;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    @include prefixers(transition,all 300ms ease-in-out , moz o webkit);
+    padding:$normal-btn-padding;
+    font-size: $normal-btn-size;
+    line-height: 1.5;
+    border-radius: $normal-btn-radius;
+    text-transform: capitalize;
+    margin: 3px 0;
+
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+}
+.btn-block{
+    width:100%;
+    display: block;
+    font-size: 17px;
+}
+//
+// button normal 
+// 
+@each $color , $value in $theme-colors{
+    .btn-#{$color}{
+        background: $value;
+        color:#fff;
+
+        &:focus,
+        &.focus {
+            outline: 0;
+            box-shadow: $input-btn-focus-box-shadow rgba($value, .25);
+        }
+    }    
+}
+@each $color-hover , $value-hover in $theme-colors-hover{
+    .btn-#{$color-hover}:hover{
+        background: $value-hover;
+    }    
+}
+
+//
+// button outline 
+//
+
+@each $color , $value in $theme-colors{
+    .btn-outline-#{$color}{
+        color: $value;
+        border:1px solid $value;
+        background: transparent;
+                
+        &:focus,
+        &.focus {
+            outline: 0;
+            box-shadow: $input-btn-focus-box-shadow rgba($value, .25);
+        }
+    }    
+}
+@each $color-hover , $value-hover in $theme-colors-hover{
+    .btn-outline-#{$color-hover}:hover{
+        background: $value-hover;
+        color:#fff
+    }    
+}
+
+//
+// input 
+//
+
+.input-form{
+    padding: $normal-btn-padding;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    line-height: 1.5em;
+    outline: none;
+    caret-color: $info;
+    @include prefixers(transition,all 300ms ease-in-out , moz o webkit);
+    margin-right: 5px;
+    
+    &:focus,
+    &.focus {
+        outline: 0;
+        box-shadow: $input-btn-focus-box-shadow rgba($primary, .25);
+    }
+}
+
+.input-form-block{
+    padding: $large-btn-padding;
+    width:100%;
+    display: block;
+    vertical-align: middle;
+    border-radius: $large-btn-radius;
+    border: 1px solid #ddd;
+    line-height: 1.5em;
+    outline: none;
+    caret-color: $dark;
+    @include prefixers(transition,all 300ms ease-in-out , moz o webkit);
+    
+    &:focus,
+    &.focus {
+        outline: 0;
+        box-shadow: $input-btn-focus-box-shadow rgba($primary, .25);
+    }  
+}
+
+//
+// Start Button Counter
+//
+
+.button-counter{
+    color:$gray-900;
+    align-items: center;
+    width: 157px;
+    border-radius: 3px;
+    display: flex;
+    margin:10px 5px;
+
+    button{
+        padding: 10px;
+        color: $white;
+        border:none;
+        min-width: 85px;
+        cursor: pointer;
+        border-radius: 0!important;
+        position: relative;
+
+        @include box-arrow(left,$white,5px);
+        @include prefixers(transition,all 300ms ease-in-out,moz o webkit);
+        
+        &:after{
+            left:auto;
+            right:0
+        }
+    }
+
+    span{
+        display: block;
+        color: $gray-900;
+        text-align: center;
+        margin: auto;
+        padding: 0px 10px;
+    } 
+}
+
+.choose-button{
+    align-items: center;
+    width: 157px;
+    border-radius: 3px;
+    display: flex;
+    margin:10px 5px;
+    color:$gray-900;
+    position: relative;
+
+    button{
+        padding: 10px;
+        color: $white;
+        border:none;
+        min-width: 85px;
+        cursor: pointer;
+        position: relative;
+    
+        &:first-child{
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            margin-right: 2px
+        }
+
+        &:last-child{
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            margin-left: 2px;
+        }
+    }
+
+    span{
+        background: #fff;
+        display: inline-block;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        z-index: 9999;
+        margin-left: -6px;
+        width: 26px;
+        text-align: center;
+        height: 26px;
+        line-height: 26px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+}
+
+

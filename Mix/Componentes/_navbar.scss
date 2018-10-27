@@ -1,0 +1,237 @@
+// Contents
+//
+// 
+// Navbar
+//
+.navbar{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; // allow us to do the line break for collapsing content
+    align-items: center;
+    justify-content: space-between; // space out brand from logo
+    padding: 0px 15px;
+    background: $light;
+    min-height:70px;
+    padding:10px;
+
+    > .container,
+    > .container-fluid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      width:100%;
+    }
+
+    // Navbar brand
+
+    .navbar-brand{
+      display: inline-block;
+      padding:10px 0;
+      white-space: nowrap;
+      font-size: 20px;
+      text-decoration: none;
+      color:$dark;
+      margin-right:15px;
+      font-weight: $font-weight-bold;
+    }
+
+    .nav-item{
+      display: flex;
+      flex-direction: row; // cannot use `inherit` to get the `.navbar`s value
+      padding-left: 0;
+      margin: 0;
+      list-style: none;
+      margin-right: auto;
+
+      > li{
+        a{
+          color:$dark;
+          text-decoration: none;
+          padding:10px;
+          font-weight: $font-weight-normal;
+          display: block;
+          @include prefixers(transition,all 300ms ease-in-out,webkit moz o);
+
+          &:hover{
+            background:$second-color;
+            color:$white
+          }
+        }
+      }
+
+      @include media-max(md){
+        display: none;
+        flex-basis: 100%;
+        order:4;
+        flex-direction: column;
+      }
+
+    }
+
+    .nav-form{
+      @include media-max(md){
+        margin-left: auto
+      }
+    }
+
+    .collapse-nav{
+      order:3;
+      font-size: 23px;
+      color: #333;
+      margin-left: 20px;
+  
+      @include media-min(md){
+        display: none;
+      }
+    }
+
+}
+
+.navbar-direction{
+  position: relative;
+  width:100%;
+  z-index: 99999;
+  display: flex;
+  flex-wrap: wrap; // allow us to do the line break for collapsing content
+  align-items: center;
+  justify-content: space-between; // space out brand from logo
+  padding: 0px 15px;
+  background: $black;
+  min-height:70px;
+  padding:10px;
+
+  .navbar-brand{
+    img{
+      width:100px
+    }
+  }
+
+
+  > .container,
+  > .container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+  }
+
+  .container-logo{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+
+    .collapse-nav{
+      color: #d96f16;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar-brand{
+      margin-right: 35px;
+    }
+  }
+
+  .nav-item{
+    display: block;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.45);
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    bottom: 0;
+    @include prefixers(transition, all .5s ease-in-out,mox webkit o);
+    opacity: 0;
+    transform: translateX(-100%);
+    
+    > ul {
+      overflow-y: hidden;
+      transform: translateX(-300px);
+      @include prefixers(transition, all .5s ease-in-out,mox webkit o);
+      left: 0;
+      background: #1b1c1d;
+      width: 200px;
+      top: 0;
+      margin: 0;
+      bottom: 0;
+      height: 100%;
+      padding:0px;
+
+      > .item{
+        color:rgba(255,255,255,.9);
+        text-decoration: none;
+        flex-direction: column;
+        display: flex;
+        text-decoration: none;
+        border-bottom: 1px solid #4a4a4a;
+        padding:13px 10px;
+        font-size:15px;
+        @include prefixers(transition,all 300ms ease , moz o webkit);
+
+        &:hover{
+          color:#fff;
+        }
+
+        img{
+          width: 80px;
+          margin-right: 20px;
+        }
+      }
+      div.item{
+        h4{
+          margin:0;
+          font-weight: normal;
+          margin-bottom: 5px;
+        }
+        >a{
+          text-decoration: none;
+          padding: 3px 0;
+          color:#8d8e8e;
+          @include prefixers(transition,all 300ms ease-in-out,moz o webkit);
+          &:hover{
+            color:#fff
+          }
+        }
+      }
+
+      &:hover{
+        overflow-y: scroll;
+      }
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #323334
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #666667; 
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .nav-item.active{
+    opacity: 1;
+    transform: translateX(0);
+    > ul{
+      transform: translateX(0);
+    }
+  }
+
+}
+
+.navbar-direction.scroll{
+  background:#fff;
+  padding:0;
+  border-bottom:1px solid #ddd;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
+  @include prefixers(transition,all .5s ease,moz o webkit)
+}
+ 
+

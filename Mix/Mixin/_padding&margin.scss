@@ -1,0 +1,54 @@
+// 
+// a Map of padding && margin
+//
+
+$pm-space:(0,5,10,15,20,25,30,40,45,50);
+
+$padding-margin:(
+    pt: padding-top,
+    pb: padding-bottom,
+    pr: padding-right,
+    pl: padding-left,
+    p : padding,
+
+    mt: margin-top,
+    mb: margin-bottom,
+    mr: margin-right,
+    ml: margin-left,
+    m : margin,
+);
+
+//
+//  use these classes if you want to make padding or margin on all media
+//
+
+@each $space in $pm-space{
+    @each $short , $full in $padding-margin{
+        .#{$short}-#{$space}{
+            #{$full}:$space+px
+        }
+    }  
+}
+
+.m-auto{
+    margin:auto
+}
+
+//
+//  use these classes if you want to make padding or margin on only media
+//
+
+@each $space in $pm-space{
+    @each $short , $full in $padding-margin{
+        @each $media in $all-media {
+            .#{$short}-#{$media}-#{$space}{
+                @include media-max($media){
+                    #{$full}:$space+px
+                }
+                @include media-min($media){
+                    #{$full}:$space+px
+                }
+            }
+        }
+    }
+}

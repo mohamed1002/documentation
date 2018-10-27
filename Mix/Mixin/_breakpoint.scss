@@ -1,0 +1,26 @@
+
+//
+// Media query Start from min-width to -------
+//
+@mixin media-min($breakpoint){
+    @if map-has-key($breakpoints , $breakpoint ){
+        @media (min-width : #{map-get($breakpoints , $breakpoint)}){
+            @content;
+        }
+    }
+    @else{
+        @error "There are error in your media is not defined"
+    }
+};
+//
+// Media query start from min width and end to max-width
+//
+@mixin media-max($breakpoint){
+    @if map-has-key($breakpoints , $breakpoint ){
+        @media (max-width : #{map-get($breakpoints , $breakpoint)}){
+            @content
+        }
+    }
+};
+
+

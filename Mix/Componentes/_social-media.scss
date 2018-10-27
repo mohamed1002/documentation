@@ -1,0 +1,74 @@
+// 
+// Start social media colors
+//
+
+.social-black{
+    display: block;
+    text-align: center;
+    li{
+        display: inline-block
+    }
+
+    a{
+        background: #000000;
+        color: #fff;
+        width: 40px;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        margin: 1px;
+        font-size: 19px;
+
+        @include prefixers(transition,all 300ms ease-in-out,moz o webkit)
+    }
+
+    @each $color , $value in $social-color{
+        .#{$color}{
+            &:hover{
+                background:$value!important;
+                color:#ddd
+            }
+        }
+    }
+
+}
+
+.social-container{
+    background:$dark;
+    padding:40px 0; 
+
+    .social-rotate{
+        display: block;
+        text-align: center;
+        background: #ddd;
+        width:250px;
+        margin:auto;
+        padding:0;
+
+        li{
+            display: inline-block
+        }
+
+        a{
+            background: #fff;
+            width: 40px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            margin: 1px;
+            font-size: 19px;
+
+            @include prefixers(transition,all 300ms ease-in-out,moz o webkit);
+        }
+
+        @each $color , $value in $social-color{
+            .#{$color}{
+                color:$value;
+                border:1px solid $value
+            }
+        }
+
+    }
+
+}
+

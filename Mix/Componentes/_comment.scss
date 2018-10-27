@@ -1,0 +1,55 @@
+// 
+// 
+// 
+
+.comment{
+    background: $gray-200;
+    padding:30px;
+
+    .comment-info{
+        display:flex;
+        align-items: center;
+
+        img{
+            width: 80px !important;;
+            height: 80px;
+            margin-right: 25px;
+        }
+
+        .user{
+            display: block;
+            margin-bottom: 10px;
+            font-size: 19px;
+            font-weight: bold;
+            text-decoration: none;
+            color: $primary;
+        }
+
+        .time{
+            color:$gray-700;
+            display: inline-block;
+            padding-right: 15px;
+            position: relative;
+
+            &:after{
+                position: absolute;
+                content: "";
+                width: 1px;
+                height: 23px;
+                background: $gray-700;
+                right: 0;
+            }
+        }
+
+        .replay{
+            color:$gray-700;
+            display: inline-block;
+            padding-left: 15px;
+            text-decoration: none;
+
+            &:hover{
+                color:$primary
+            }
+        }
+    }
+}
