@@ -24,7 +24,7 @@ jQuery(function($){
         var src = $(this).attr("data-src");
         $(".mix-section").removeClass('active');
         $(".mix-section"+`${src}`).addClass('active');
-        $('.navbar-direction .nav-item').removeClass('active')
+        // $('.navbar-direction .nav-item').removeClass('active')
     })
     // link dropdown menu 
     // $('.dropdown-menu a').click(function(){

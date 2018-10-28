@@ -1,5 +1,18 @@
 // Start Home Page 
- 
+body{
+    @include media-min(md){
+        padding-left:200px;
+    }
+}
+
+.navbar-direction{
+    .collapse-nav{
+        @include media-min(md){
+            display: none
+        }
+    }
+}
+
 // Header
 
 .header-home{
@@ -32,9 +45,9 @@
     }
 }
 
-// .mix-section{
-//     display: none
-// }
+.mix-section{
+    display: none
+}
 .mix-section.active{
     display: block
 }

@@ -16,14 +16,19 @@
 @import "./Componentes/card";
 @import "./Componentes/social-media";
 @import "./Componentes/comment";
+@import "./Componentes/media-item";
 
+@import "./style";
 
 *{
-    box-sizing: border-box
+    box-sizing: border-box;
 }
-
+@font-face {
+    font-family: MixFont;
+    src: url(./segoe.ttf);
+}
 body{
-    font-family: $font-family;
+    font-family: MixFont;
     box-sizing: border-box;
     color:$body-color
 }

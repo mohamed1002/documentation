@@ -139,13 +139,17 @@
     background: rgba(0, 0, 0, 0.45);
     top: 0;
     left: 0px;
-    width: 100%;
+    width: 0%;
     height: 100%;
     z-index: 9999;
     bottom: 0;
     @include prefixers(transition, all .5s ease-in-out,mox webkit o);
     opacity: 0;
     transform: translateX(-100%);
+
+    @include media-max(md){
+      width:100%;
+    }
     
     > ul {
       overflow-y: hidden;

@@ -1,0 +1,26 @@
+//
+// Start Media Item
+//
+
+.media-item{
+    display: flex;
+
+    > img{
+        height: 150px;
+        margin-right: 20px;
+    }
+    h4{
+        padding:0px 0px 7px 0;
+        font-weight: bold;
+    }
+    > div{
+        span{
+            display:inline-block;
+            color:$gray-500;
+            margin-right: 5px
+        }
+    }
+    p{
+        margin:10px 0
+    }
+}
